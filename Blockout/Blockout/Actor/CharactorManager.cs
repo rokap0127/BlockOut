@@ -88,11 +88,6 @@ namespace Blockout.Actor
                     {
                         continue;
                     }
-                    //if (paddle.IsPaddleCollision(ball))
-                    //{
-                    //    paddle.Hit(ball);
-                    //    ball.Hit(paddle);
-                    //}
                     if(paddle.IsPaddleCollision(ball) == 0)
                     {
                         paddle.Hit(ball);
@@ -112,7 +107,7 @@ namespace Blockout.Actor
                     }
                     if(paddle.IsPaddleCollision(ball) == 1)
                     {
-                          paddle.Hit(ball);
+                        paddle.Hit(ball);
                         ball.Hit(paddle);
                     }
                 }
@@ -169,7 +164,6 @@ namespace Blockout.Actor
                             isHit = true;
                             count++;
                         }                      
-                        
                     }
                 }
             }

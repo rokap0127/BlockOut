@@ -28,8 +28,6 @@ namespace Blockout.Actor
             speed = Vector2.Zero;
             Random rnd = new Random();
             ans = rnd.Next(1, 5);
-
-
         }
 
         public override void Draw(Renderer renderer)
@@ -52,7 +50,6 @@ namespace Blockout.Actor
             speed.Y = 4;
             var gameDevice = GameDevice.Instance();
             sound = gameDevice.GetSound();
-
         }
 
         public override void Update(GameTime gameTime)
@@ -80,8 +77,6 @@ namespace Blockout.Actor
         }
 
         public override void HitX(Charactor other)
-        {
-            throw new NotImplementedException();
-        }
+        { }
     }
 }

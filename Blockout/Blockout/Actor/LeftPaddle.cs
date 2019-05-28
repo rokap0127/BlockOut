@@ -20,9 +20,7 @@ namespace Blockout.Actor
         /// </summary>
         public LeftPaddle()
             : base("paddle_blue")
-        {
-
-        }
+        { }
 
         /// <summary>
         /// 初期化
@@ -84,13 +82,9 @@ namespace Blockout.Actor
         }
 
         public override void Hit(Charactor other)
-        {
-
-        }
+        { }
 
         public override void HitX(Charactor other)
-        {
-            throw new NotImplementedException();
-        }
+        { }
     }
 }

@@ -30,9 +30,7 @@ namespace Blockout.Actor
         }
 
         public override void HitX(Charactor other)
-        {
-            throw new NotImplementedException();
-        }
+        { }
 
         public override void Initialize()
         {
@@ -42,8 +40,6 @@ namespace Blockout.Actor
         }
 
         public override void Update(GameTime gameTime)
-        {
-            
-        }
+        { }
     }
 }

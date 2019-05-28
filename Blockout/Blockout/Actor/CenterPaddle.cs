@@ -20,9 +20,7 @@ namespace Blockout.Actor
         /// </summary>
         public CenterPaddle()
             :base("paddle_gree")
-        {
-            
-        }
+        { }
 
         /// <summary>
         /// 初期化
@@ -85,13 +83,9 @@ namespace Blockout.Actor
         }
 
         public override void Hit(Charactor other)
-        {
-           
-        }
+        { }
 
         public override void HitX(Charactor other)
-        {
-            throw new NotImplementedException();
-        }
+        { }
     }
 }
