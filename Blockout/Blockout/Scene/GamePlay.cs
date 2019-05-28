@@ -14,28 +14,38 @@ namespace Blockout.Scene
 {
     class GamePlay : IScene
     {
-        private CharactorManager charactorManager;
-        private Block block;
-        private ItemBlock itemBlock;
-        private Random rnd;
-        private Timer timer;
-        private Sound sound;
+        private CharactorManager charactorManager; //キャラクターマネージャ
+        private Block block; //ブロック
+        private ItemBlock itemBlock; //アイテムブロック
+        private Random rnd; //ランダム
+        private Timer timer; //タイム
+        private Sound sound; //サウンド
 
-        private float count;
-        private bool isEndFlag;
+        private float itemCount; //アイテムカウント
+        private bool isEndFlag; //終了フラグ
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public GamePlay()
         {
             isEndFlag = false;
             rnd = new Random();
         }
 
+        /// <summary>
+        /// 描画
+        /// </summary>
+        /// <param name="renderer"></param>
         public void Draw(Renderer renderer)
         {
             renderer.DrawTexture("background", Vector2.Zero);
             charactorManager.Draw(renderer);
         }
 
+        /// <summary>
+        /// 初期化
+        /// </summary>
         public void Initialize()
         {
             isEndFlag = false;
@@ -62,14 +72,21 @@ namespace Blockout.Scene
 
             timer = new CountDownTimer(1);
             charactorManager.Add(new Ball(new Vector2(512, 578)));
-  
         }
 
+        /// <summary>
+        /// 終了か？
+        /// </summary>
+        /// <returns></returns>
         public bool IsEnd()
         {
             return isEndFlag;
         }
 
+        /// <summary>
+        /// 次のシーン
+        /// </summary>
+        /// <returns></returns>
         public Scene Next()
         {
             if(charactorManager.BallCount() == 0)
@@ -79,19 +96,24 @@ namespace Blockout.Scene
             return Scene.GoodEnding;
         }
 
+        //終了処理
         public void Shutdown()
         {
             sound.StopBGM();
         }
 
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="gameTime"></param>
         public void Update(GameTime gameTime)
         {
             //ブロックに当たると
-            if (count < charactorManager.GetCount())
+            if (itemCount < charactorManager.GetCount())
             {
                 charactorManager.Add(new Item(new Vector2(
               rnd.Next(Screen.Width - 32), -32)));
-            count = charactorManager.GetCount();
+            itemCount = charactorManager.GetCount();
             }
 
             if (charactorManager.BornBall())

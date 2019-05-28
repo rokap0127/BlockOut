@@ -15,9 +15,7 @@ namespace Blockout.Scene
         private bool isEndFlag;
 
         public Ending()
-        {
-
-        }
+        { }
 
         public void Draw(Renderer renderer)
         {

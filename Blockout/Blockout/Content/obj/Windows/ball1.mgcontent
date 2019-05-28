@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/K018A1808/Desktop/個人製作_3.1/Blockout/Blockout/Content/ball1.png</SourceFile>
+  <SourceFile>C:/BlockOut/Blockout/Blockout/Content/ball1.png</SourceFile>
   <SourceTime>2019-01-24T15:28:03.3961532+09:00</SourceTime>
-  <DestFile>C:/Users/K018A1808/Desktop/個人製作_3.1/Blockout/Blockout/Content/bin/Windows/ball1.xnb</DestFile>
-  <DestTime>2019-04-18T15:57:28.2388442+09:00</DestTime>
+  <DestFile>C:/BlockOut/Blockout/Blockout/Content/bin/Windows/ball1.xnb</DestFile>
+  <DestTime>2019-05-28T15:46:53.5203716+09:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-02T00:05:36+09:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
