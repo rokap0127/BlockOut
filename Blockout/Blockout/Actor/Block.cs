@@ -11,7 +11,6 @@ namespace Blockout.Actor
 {
     class Block : Charactor
     {
-        private int ans;
         private Random rnd = new Random();
         private Sound sound;
 
@@ -23,8 +22,6 @@ namespace Blockout.Actor
             :base("block_32")
         {
             this.rect = rect;
-            ans = rnd.Next(1, 5);
-            
         }
 
         /// <summary>
@@ -40,20 +37,6 @@ namespace Blockout.Actor
         public override void Draw(Renderer renderer)
         {
             renderer.DrawTexture("block_2", new Vector2(rect.X, rect.Y));
-            //switch (ans)
-            //{
-            //    case 1: renderer.DrawTexture("block_1", new Vector2(rect.X,rect.Y));
-            //        break;
-            //    case 2:
-            //        renderer.DrawTexture("block_2", new Vector2(rect.X, rect.Y));
-            //        break;
-            //    case 3:
-            //        renderer.DrawTexture("block_3", new Vector2(rect.X, rect.Y));
-            //        break;
-            //    case 4:
-            //        renderer.DrawTexture("block_4", new Vector2(rect.X, rect.Y));
-            //        break;
-            //}
         }
 
         /// <summary>
@@ -99,7 +82,7 @@ namespace Blockout.Actor
 
         public override void HitX(Charactor other)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
