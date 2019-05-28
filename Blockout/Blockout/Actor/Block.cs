@@ -44,9 +44,8 @@ namespace Blockout.Actor
         /// </summary>
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
-        {
+        { }
 
-        }
         /// <summary>
         /// ヒット通知
         /// </summary>
@@ -66,7 +65,7 @@ namespace Blockout.Actor
             return isDeadFlag;
         }
 
-
+        //終了
         public bool End()
         {
             if(rect == null)
@@ -81,8 +80,6 @@ namespace Blockout.Actor
         }
 
         public override void HitX(Charactor other)
-        {
-
-        }
+        { }
     }
 }
