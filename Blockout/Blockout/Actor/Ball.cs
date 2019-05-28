@@ -11,15 +11,19 @@ namespace Blockout.Actor
 {
     class Ball : Charactor
     {
-        private Vector2 size;
-        private Vector2 halfsize;
-        private Vector2 speed;
-        private Sound sound;
-        private int coler;
+        private Vector2 size; //サイズ
+        private Vector2 halfsize; //半サイズ
+        private Vector2 speed; //スピード
+        private Sound sound; //サウンド
+        private int coler; //色番号
 
         private Random random;
 
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="position"></param>
         public Ball(Vector2 position)
             :base("blue")
         {
@@ -31,6 +35,9 @@ namespace Blockout.Actor
             isDeadFlag = false;
         }
 
+        /// <summary>
+        /// 初期化
+        /// </summary>
         public override void Initialize()
         {
            
@@ -43,6 +50,7 @@ namespace Blockout.Actor
             isDeadFlag = false;
         }
 
+        //描画
         public override void Draw(Renderer renderer)
         {
             switch (coler) {
@@ -100,11 +108,16 @@ namespace Blockout.Actor
             }
         }
 
+        //終了か？
         public bool IsEnd()
         {
             return isDeadFlag;
         }
 
+        /// <summary>
+        /// ヒット通知
+        /// </summary>
+        /// <param name="other"></param>
         public override void Hit(Charactor other)
         {
             if(other is CenterPaddle)
@@ -128,6 +141,10 @@ namespace Blockout.Actor
             
         }
 
+        /// <summary>
+        /// 横のヒット通知
+        /// </summary>
+        /// <param name="other"></param>
         public override void HitX(Charactor other)
         {
             //左右に跳ね返り
@@ -138,11 +155,17 @@ namespace Blockout.Actor
             //}
         }
 
+        /// <summary>
+        /// 中心パドルのヒット通知
+        /// </summary>
         void CenterHit()
         {
             speed.Y *= -1;
         }
 
+        /// <summary>
+        /// 左パドルのヒット通知
+        /// </summary>
         void LeftHit()
         {
             speed.Y *= -1;
@@ -157,6 +180,9 @@ namespace Blockout.Actor
             }
         }
 
+        /// <summary>
+        /// 右パドルのヒット通知
+        /// </summary>
         void RigthHit()
         {
             speed.Y *= -1;
