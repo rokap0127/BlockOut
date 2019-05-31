@@ -19,12 +19,11 @@ namespace Blockout.Actor
 
         private Random random;
 
-
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="position"></param>
-        public Ball(Vector2 position)
+         public Ball(Vector2 position)
             :base("blue")
         {
             this.position = position;
