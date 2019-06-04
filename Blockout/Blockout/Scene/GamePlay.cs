@@ -23,6 +23,7 @@ namespace Blockout.Scene
         private Sound sound; //サウンド
 
         private float itemCount; //アイテムカウント
+        private float bulletCount;
         private bool isEndFlag; //終了フラグ
 
         /// <summary>
@@ -115,20 +116,23 @@ namespace Blockout.Scene
                 charactorManager.Add(new Item(new Vector2(
               rnd.Next(Screen.Width - 32), -32)));
             itemCount = charactorManager.GetCount();
+   
             }
 
             if (charactorManager.BornBall())
             {
                 charactorManager.Add(new Ball(new Vector2
                     (rnd.Next(0, Screen.Width - 32), 0)));
+                bulletCount += 1;
             }
 
-            if(itemCount >= 1)
+            if(bulletCount != 0)
             {
                 if (Input.GetKeyTrigger(Keys.Space))
                 {
                     Vector2 paddlePos = centerPaddle.GetPaddlePos() + new Vector2(50, 0);
-                    charactorManager.Add(new Bullet(paddlePos));                                                                                                            
+                    charactorManager.Add(new Bullet(paddlePos));
+                    bulletCount -= 1;
                 }
             }
           

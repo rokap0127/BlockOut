@@ -26,12 +26,13 @@ namespace Blockout.Actor
 
         public override void Initialize()
         {
+            isDeadFlag = false;
             speed = new Vector2(0, -8);
         }
 
         public override void Hit(Charactor other)
         {
-            
+            isDeadFlag = true;
         }
 
         public override void HitX(Charactor other)

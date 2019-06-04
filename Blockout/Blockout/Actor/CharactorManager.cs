@@ -173,6 +173,27 @@ namespace Blockout.Actor
                     }
                 }
             }
+            //ブロックとバレットの当たり判定
+            foreach(var block in blocks)
+            {
+                foreach(var bullet in bullets)
+                {
+                    if (bullet.IsDead() || block.IsDead())
+                    {
+                        continue;
+                    }
+                    if (block.IsBlockCollision(bullet) == 0)
+                    {
+                        block.Hit(bullet);
+                        bullet.Hit(block);
+                    }
+                    if (block.IsBlockCollision(bullet) == 1)
+                    {
+                        block.Hit(bullet);
+                        bullet.HitX(block);
+                    }
+                }
+            }
         }
 
         public float GetCount()
