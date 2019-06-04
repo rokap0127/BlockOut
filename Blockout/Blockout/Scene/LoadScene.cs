@@ -68,9 +68,9 @@ namespace Blockout.Scene
                 {"sky", path },
                 {"gameClear", path },
                 {"gameOver", path },
-                 {"title2", path },
-                  {"background", path },
-
+                {"title2", path },
+                {"background", path },
+                {"remaining bullets", path },
                 // numberの画像はLoadシーンで使うので、Game1クラスで読み込む
                 //{ "number", path } 
 

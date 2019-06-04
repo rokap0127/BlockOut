@@ -166,3 +166,4 @@ C:\BlockOut\Blockout\Blockout\obj\x86\Debug\Blockout.csproj.CoreCompileInputs.ca
 C:\BlockOut\Blockout\Blockout\obj\x86\Debug\Blockout.csproj.CopyComplete
 C:\BlockOut\Blockout\Blockout\obj\x86\Debug\Blockout.exe
 C:\BlockOut\Blockout\Blockout\obj\x86\Debug\Blockout.pdb
+C:\BlockOut\Blockout\Blockout\bin\Windows\x86\Debug\Content\remaining bullets.xnb

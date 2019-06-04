@@ -24,6 +24,9 @@ namespace Blockout.Scene
 
         private float itemCount; //アイテムカウント
         private float bulletCount;
+
+        private BulletUI bulletUI; //バレットUI
+
         private bool isEndFlag; //終了フラグ
 
         /// <summary>
@@ -31,8 +34,6 @@ namespace Blockout.Scene
         /// </summary>
         public GamePlay()
         {
-            isEndFlag = false;
-            rnd = new Random();
         }
 
         /// <summary>
@@ -42,6 +43,7 @@ namespace Blockout.Scene
         public void Draw(Renderer renderer)
         {
             renderer.DrawTexture("background", Vector2.Zero);
+            bulletUI.Draw(renderer);
             charactorManager.Draw(renderer);
         }
 
@@ -50,7 +52,11 @@ namespace Blockout.Scene
         /// </summary>
         public void Initialize()
         {
+            //乱数を取得
+            rnd = new Random();
+            //終了フラグをオフ
             isEndFlag = false;
+            //キャラクターマネージャを生成
             charactorManager = new CharactorManager();
             charactorManager.Add(new RightPaddle());
             charactorManager.Add( centerPaddle = new CenterPaddle());
@@ -74,7 +80,15 @@ namespace Blockout.Scene
 
             timer = new CountDownTimer(1);
             charactorManager.Add(new Ball(new Vector2(512, 578)));
+
+            //アイテムカウントの初期化
+            itemCount = 0;
+            //バレットカウントの初期化
             bulletCount = 0;
+
+            //バレットUIの生成、初期化
+            bulletUI = new BulletUI(bulletCount);
+
         }
 
         /// <summary>
@@ -120,6 +134,7 @@ namespace Blockout.Scene
    
             }
 
+            //アイテム発生
             if (charactorManager.BornBall())
             {
                 charactorManager.Add(new Ball(new Vector2
@@ -127,6 +142,7 @@ namespace Blockout.Scene
                 bulletCount += 1;
             }
 
+            //バレットを撃つ
             if(bulletCount != 0)
             {
                 if (Input.GetKeyTrigger(Keys.Space))
@@ -152,6 +168,10 @@ namespace Blockout.Scene
             }
             charactorManager.Update(gameTime);
             timer.Update(gameTime);
+
+            //バレットUIの生成
+            bulletUI = new BulletUI(bulletCount);
+
 
             //sound.PlayBGM("");
         }
