@@ -20,7 +20,7 @@ namespace Blockout.Actor
         private List<Charactor> addNewCharacters; //追加するキャラクターリスト
         private bool isHit; //ヒット通知
         private bool bornBall; //ボール生成
-        private float count;
+        private float itemCount; //アイテムカウント
 
         /// <summary>
         /// コンストラクタ
@@ -114,7 +114,7 @@ namespace Blockout.Actor
                     if(paddle.IsPaddleCollision(ball) == 1)
                     {
                         paddle.Hit(ball);
-                        ball.Hit(paddle);
+                        ball.HitX(paddle);
                     }
                 }
             }
@@ -158,7 +158,7 @@ namespace Blockout.Actor
                         if(block is ItemBlock)
                         {
                             isHit = true;
-                            count++;
+                            itemCount++;
                         }
                     }
                     if(block.IsBlockCollision(ball) == 1)
@@ -168,7 +168,7 @@ namespace Blockout.Actor
                         if(block is ItemBlock)
                         {
                             isHit = true;
-                            count++;
+                            itemCount++;
                         }                      
                     }
                 }
@@ -196,9 +196,9 @@ namespace Blockout.Actor
             }
         }
 
-        public float GetCount()
+        public float GetItemCount()
         {
-            return count;
+            return itemCount;
         }
 
         public bool IsHit()
