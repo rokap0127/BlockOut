@@ -74,6 +74,7 @@ namespace Blockout.Scene
 
             timer = new CountDownTimer(1);
             charactorManager.Add(new Ball(new Vector2(512, 578)));
+            bulletCount = 0;
         }
 
         /// <summary>
