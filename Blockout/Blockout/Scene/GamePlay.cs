@@ -17,6 +17,7 @@ namespace Blockout.Scene
         private CharactorManager charactorManager; //キャラクターマネージャ
         private Block block; //ブロック
         private ItemBlock itemBlock; //アイテムブロック
+        private CenterPaddle centerPaddle;
         private Random rnd; //ランダム
         private Timer timer; //タイム
         private Sound sound; //サウンド
@@ -51,7 +52,7 @@ namespace Blockout.Scene
             isEndFlag = false;
             charactorManager = new CharactorManager();
             charactorManager.Add(new RightPaddle());
-            charactorManager.Add(new CenterPaddle());
+            charactorManager.Add( centerPaddle = new CenterPaddle());
             charactorManager.Add(new LeftPaddle());
             
             for (int i = 0; i <= Screen.Height/*横の長さ*/; i += 35)
@@ -121,6 +122,16 @@ namespace Blockout.Scene
                 charactorManager.Add(new Ball(new Vector2
                     (rnd.Next(0, Screen.Width - 32), 0)));
             }
+
+            if(itemCount >= 1)
+            {
+                if (Input.GetKeyTrigger(Keys.Space))
+                {
+                    Vector2 paddlePos = centerPaddle.GetPaddlePos() + new Vector2(50, 0);
+                    charactorManager.Add(new Bullet(paddlePos));                                                                                                            
+                }
+            }
+          
 
             //終了条件
             //if (Input.GetKeyTrigger(Keys.Space) ) //スペースを押したら

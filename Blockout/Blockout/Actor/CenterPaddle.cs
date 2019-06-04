@@ -10,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace Blockout.Actor
 {
-    //横250px 縦10px
+    //横300px 縦10px
 
     class CenterPaddle : Charactor
     {
-
         /// <summary>
         /// コンストラク
         /// </summary>
         public CenterPaddle()
             :base("paddle_gree")
-        { }
+        {
+
+        }
 
         /// <summary>
         /// 初期化
@@ -32,9 +33,9 @@ namespace Blockout.Actor
             rect = new Rectangle(360, Screen.Height - 32, 100, 10);
         }
 
-        public Rectangle GetPaddlePos()
+        public Vector2  GetPaddlePos()
         {
-            return rect;
+            return new Vector2(rect.X, rect.Y);
         }
 
         /// <summary>

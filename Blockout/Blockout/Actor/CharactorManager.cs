@@ -16,6 +16,7 @@ namespace Blockout.Actor
         private List<Charactor> balls; //ボールリスト
         private List<Charactor> items; //アイテムリスト
         private List<Charactor> blocks; //ブロックリスト
+        private List<Charactor> bullets; //バレットリスト
         private List<Charactor> addNewCharacters; //追加するキャラクターリスト
         private bool isHit; //ヒット通知
         private bool bornBall; //ボール生成
@@ -54,6 +55,11 @@ namespace Blockout.Actor
                 blocks.Clear();
             else
                 blocks = new List<Charactor>();
+
+            if (bullets != null)
+                bullets.Clear();
+            else
+                bullets = new List<Charactor>();
 
             if (addNewCharacters != null)
                 addNewCharacters.Clear();
@@ -192,6 +198,7 @@ namespace Blockout.Actor
             balls.RemoveAll(b => b.IsDead());
             items.RemoveAll(i => i.IsDead());
             blocks.RemoveAll(bl => bl.IsDead());
+            bullets.RemoveAll(bu => bu.IsDead());
         }
 
         public void Update(GameTime gameTime)
@@ -212,6 +219,8 @@ namespace Blockout.Actor
 
             foreach (var bl in blocks)
                 bl.Update(gameTime);
+            foreach (var bu in bullets)
+                bu.Update(gameTime);
 
             //追加候補者をリストに追加
             foreach (var newChara in addNewCharacters)
@@ -240,6 +249,11 @@ namespace Blockout.Actor
                     newChara.Initialize();
                     blocks.Add(newChara);
                 }
+                if(newChara is Bullet)
+                {
+                    newChara.Initialize();
+                    bullets.Add(newChara);
+                }
             }
                 //追加処理後、追加リストはクリア
                 addNewCharacters.Clear();
@@ -263,6 +277,8 @@ namespace Blockout.Actor
 
             foreach (var i in items)
                 i.Draw(renderer);
+            foreach (var bu in bullets)
+                bu.Draw(renderer);
         }
 
         /// <summary>

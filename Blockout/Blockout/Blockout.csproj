@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Actor\Ball.cs" />
     <Compile Include="Actor\Block.cs" />
+    <Compile Include="Actor\Bullet.cs" />
     <Compile Include="Actor\Charactor.cs" />
     <Compile Include="Actor\CharactorManager.cs" />
     <Compile Include="Actor\Item.cs" />
